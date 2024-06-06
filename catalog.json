@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Corte Clássico",
+        "description": "Um corte tradicional que nunca sai de moda.",
+        "image": "corte.jpg"
+    },
+    {
+        "name": "Barba",
+        "description": "Barba desenhada e cuidada com precisão.",
+        "image": "barba_estilizada.jpg"
+    },
+    {
+        "name": "Sobrancelha",
+        "description": "Design de sobrancelha perfeito para você.",
+        "image": "sobrancelha.jpg"
+    },
+    {
+        "name": "Pigmentação",
+        "description": "Pigmentação capilar para um visual renovado.",
+        "image": "pig.jpg"
+    }
+]
