@@ -1,4 +1,6 @@
-function submitForm() {
+function submitForm(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const service = document.getElementById('service').value;
