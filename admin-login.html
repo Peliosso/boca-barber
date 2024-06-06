@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Boca Barber</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">Boca Barber</div>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html#home">Início</a></li>
+                <li><a href="index.html#catalog">Catálogo</a></li>
+                <li><a href="index.html#appointment">Agendar Horário</a></li>
+                <li><a href="admin-login.html">Administração</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="admin-login" class="admin-login">
+        <h2>Login de Administração</h2>
+        <form id="login-form">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <script src="admin-scripts.js"></script>
+</body>
+</html>
