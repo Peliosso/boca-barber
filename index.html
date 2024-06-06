@@ -32,27 +32,25 @@
     <section id="catalog" class="catalog">
         <h2>Catálogo</h2>
         <div class="catalog-grid" id="catalog-grid">
-            <div class="catalog-item" style="margin-bottom: 20px;">
+            <div class="catalog-item" onclick="expandItem(this)">
                 <img src="corte.jpg" alt="Corte de Cabelo">
                 <h3>Corte de Cabelo</h3>
                 <p>Descrição: Corte masculino ou feminino, com freestyle, desenhos, etc.</p>
                 <p>Preço: R$25,00</p>
             </div>
-            <div class="catalog-item" style="margin-bottom: 20px;">
+            <div class="catalog-item" onclick="expandItem(this)">
                 <img src="sobrancelha.jpg" alt="Sobrancelha">
                 <h3>Sobrancelha</h3>
                 <p>Descrição: Design de sobrancelha para realçar o olhar.</p>
                 <p>Preço: R$5,00</p>
             </div>
-        </div>
-        <div class="catalog-grid" id="catalog-grid">
-            <div class="catalog-item" style="margin-top: 20px;">
+            <div class="catalog-item" onclick="expandItem(this)">
                 <img src="barba.jpg" alt="Barba">
                 <h3>Barba</h3>
                 <p>Descrição: Cortes e modelagens de barba personalizados para realçar sua aparência.</p>
                 <p>Preço: R$15,00</p>
             </div>
-            <div class="catalog-item" style="margin-top: 20px;">
+            <div class="catalog-item" onclick="expandItem(this)">
                 <img src="pig.jpg" alt="Pigmentação">
                 <h3>Pigmentação</h3>
                 <p>Descrição: Cubra os cabelos grisalhos ou crie um visual mais volumoso.</p>
@@ -62,25 +60,27 @@
     </section>
 
     <section id="appointment" class="appointment">
-        <h2>Agendar Horário</h2>
-        <form id="appointment-form">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required>
-            <label for="phone">Telefone</label>
-            <input type="text" id="phone" name="phone" required>
-            <label for="service">Serviço</label>
-            <select id="service" name="service" required>
-                <option value="corte">Corte de Cabelo</option>
-                <option value="sobrancelha">Sobrancelha</option>
-                <option value="barba">Barba</option>
-                <option value="pigmentacao">Pigmentação</option>
-            </select>
-            <label for="date">Data</label>
-            <input type="date" id="date" name="date" required>
-            <label for="time">Hora</label>
-            <input type="time" id="time" name="time" required>
-            <button type="submit">Agendar</button>
-        </form>
+        <div class="appointment-container">
+            <h2>Agendar Horário</h2>
+            <form id="appointment-form">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Telefone</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="service">Serviço</label>
+                <select id="service" name="service" required>
+                    <option value="corte">Corte de Cabelo</option>
+                    <option value="sobrancelha">Sobrancelha</option>
+                    <option value="barba">Barba</option>
+                    <option value="pigmentacao">Pigmentação</option>
+                </select>
+                <label for="date">Data</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Hora</label>
+                <input type="time" id="time" name="time" required>
+                <button type="button" onclick="submitForm()">Agendar</button>
+            </form>
+        </div>
     </section>
 
     <footer>
@@ -88,5 +88,24 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        function submitForm() {
+            const formData = new FormData(document.getElementById('appointment-form'));
+            fetch('http://localhost:3000/agendamentos', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Agendamento realizado com sucesso!');
+                document.getElementById('appointment-form').reset();
+            })
+            .catch(error => {
+                console.error('Erro ao agendar horário:', error);
+                alert('Erro ao agendar horário. Por favor, tente novamente mais tarde.');
+            });
+        }
+    </script>
 </body>
 </html>
+
